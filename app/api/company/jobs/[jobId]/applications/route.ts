@@ -3,9 +3,9 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function GET(request: Request, { params }: { params: { jobId: string } }) {
+export async function GET(req: Request, context: { params: { jobId: string } }) {
 
-    const jobId = params.jobId;
+    const { jobId } = context.params;
 
     if (!jobId) {
         return NextResponse.json({ error: "Missing jobId parameter"}, { status: 400});
