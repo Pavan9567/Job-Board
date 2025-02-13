@@ -1,20 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [jobs, setJobs] = useState<any[]>([]);
-
-  useEffect(() => {
-    async function fetchJobs() {
-      const response = await fetch("/api/jobs");
-      const data = await response.json();
-      setJobs(data);
-    }
-    fetchJobs();
-  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
