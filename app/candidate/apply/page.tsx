@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export default function ApplyPage() {
   const [jobs, setJobs] = useState([]);
   const [candidateName, setCandidateName] = useState("");

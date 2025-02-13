@@ -8,6 +8,7 @@ export default function ApplyForJob() {
   const params = useParams();
   const jobId = params.jobId;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [job, setJob] = useState<any>(null);
   const [candidateName, setCandidateName] = useState("");
   const [candidateEmail, setCandidateEmail] = useState("");
@@ -15,7 +16,6 @@ export default function ApplyForJob() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Fetch job details
   useEffect(() => {
     async function fetchJob() {
       try {

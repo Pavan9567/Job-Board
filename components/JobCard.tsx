@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function JobCard({ job }: { job: any }) {
   return (
     <div className="p-4 border rounded mb-2">

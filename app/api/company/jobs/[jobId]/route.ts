@@ -17,6 +17,7 @@ export async function GET(req: Request, { params }: { params: { jobId: string} }
 
         return NextResponse.json(job, { status: 200 });
     }catch (error) {
+        console.error(error);
         return NextResponse.json({ error: "Failed to fetch job" }, { status: 500 });
     }
 }
@@ -36,6 +37,7 @@ export async function PUT(req: Request, { params }: { params: { jobId: string } 
 
         return NextResponse.json(updatedJob, { status: 200 });
     } catch (error) {
+        console.error(error);
         return NextResponse.json({ error: "Failed to update job" }, { status: 500 });
     }
 }
@@ -49,6 +51,7 @@ export async function DELETE(req: Request, { params }: { params: { jobId: string
 
         return NextResponse.json({ message: "Job deleted successfully" }, { status: 200 });
     } catch (error) {
+        console.error(error);
         return NextResponse.json({ error: "Failed to delete job" }, { status: 500 });
     }
 }
