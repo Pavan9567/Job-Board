@@ -3,14 +3,10 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-interface Params {
-    jobId: string
-}
-
-export async function GET(req: NextRequest, context: { params : Params }) {
+export async function GET(req: NextRequest, { params }: { params: { jobId: string} }) {
     
     try {
-        const { jobId } = context.params;
+        const { jobId } = await params;
 
         if (!jobId) {
             return NextResponse.json({ error: "Missing jobId parameter"}, { status: 400});
