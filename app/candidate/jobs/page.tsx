@@ -1,6 +1,6 @@
-// app/candidate/jobs/page.tsx
 import JobCard from '@/components/JobCard';
 import { getJobs } from '../../../lib/db';
+import Link from 'next/link';
 
 export default async function CandidateJobsPage() {
   const jobs = await getJobs();
@@ -17,6 +17,7 @@ export default async function CandidateJobsPage() {
         ) : (
             <p>No jobs available</p>
         )}
+      <Link href="/candidate/apply" className='mt-2 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'>Apply to a Job</Link>
     </div>
   );
 }

@@ -9,7 +9,8 @@ export default function ApplicationsPage() {
     const params = useParams();
     const jobId = params.jobId;
 
-    const [applications, setApplications] = useState([]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [applications, setApplications] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -36,7 +37,7 @@ export default function ApplicationsPage() {
                 <p className="text-gray-500 mt-4">No applications found.</p>
             ) : (
                 <ul className="mt-4 space-y-4">
-                    {applications.map((app: any) => (
+                    {applications.map((app) => (
                         <li key={app.id} className="border p-4 rounded-md shadow">
                             <p className="font-medium text-gray-800">{app.candidateName}</p>
                             <p className="text-gray-600">Email: {app.candidateEmail}</p>

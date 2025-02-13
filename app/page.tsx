@@ -3,9 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-
 export default function Home() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [jobs, setJobs] = useState<any[]>([]);
 
   useEffect(() => {
@@ -44,22 +43,9 @@ export default function Home() {
         <section>
           <h2 className="text-2xl font-bold mb-4">For Candidates</h2>
           <p className="text-gray-600">Browse job listings and apply easily.</p>
-
-          {jobs.length > 0 ? (
-            <ul className="space-y-4 mt-4">
-              {jobs.map((job) => (
-                <li key={job.id} className="p-4 border rounded shadow bg-white">
-                  <h3 className="text-xl font-semibold">{job.title} at {job.company}</h3>
-                  <p className="text-gray-600">{job.description}</p>
-                  <Link href={`/candidate/apply/${job.id}`} className="mt-2 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">
-                    Apply Now
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="mt-4 text-gray-600">No jobs available yet.</p>
-          )}
+          <Link href="/candidate/jobs" className="mt-2 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">
+              Available Jobs
+          </Link>
         </section>
       </div>
     </div>

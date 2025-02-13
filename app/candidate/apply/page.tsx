@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-
 export default function ApplyPage() {
-  const [jobs, setJobs] = useState([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [jobs, setJobs] = useState<any[]>([]);
   const [candidateName, setCandidateName] = useState("");
   const [candidateEmail, setCandidateEmail] = useState("");
   const [resumeUrl, setResumeUrl] = useState("");
@@ -55,6 +54,7 @@ export default function ApplyPage() {
       setCandidateEmail("");
       setResumeUrl("");
       setJobId("");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setError(error.message);
     }
@@ -84,7 +84,7 @@ export default function ApplyPage() {
           <label className="block text-gray-700">Select Job</label>
           <select value={jobId} onChange={(e) => setJobId(e.target.value)} className="w-full p-2 border border-gray-300 rounded" required>
             <option value="">Select a job</option>
-            {jobs.map((job: any) => (
+            {jobs.map((job) => (
               <option key={job.id} value={job.id}>
                 {job.title} - {job.company}
               </option>
