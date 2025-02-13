@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export async function GET(req: NextRequest, { params }: { params: { jobId: string } }) {
     
     try {
-        const { jobId } = params;
+        const { jobId } = await params;
 
         if (!jobId) {
             return NextResponse.json({ error: "Missing jobId parameter"}, { status: 400});
