@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function GET(req: NextRequest, { params }: { params: { jobId: Number} }) {
+export async function GET(req: NextRequest, { params }: { params: { jobId: number} }) {
     
     try {
         const { jobId } = await params;
