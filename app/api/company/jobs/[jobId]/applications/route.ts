@@ -5,19 +5,15 @@ const prisma = new PrismaClient();
 
 export async function GET(request: Request, { params }: { params: { jobId: string } }) {
 
+    const jobId = params.jobId;
+
+    if (!jobId) {
+        return NextResponse.json({ error: "Missing jobId parameter"}, { status: 400});
+    }
+
     try {
-        if (!params || !params.jobId) {
-            return NextResponse.json({ error: "Missing jobId parameter"}, { status: 400});
-        }
-
-        const jobId = parseInt(params.jobId)
-
-        if (isNaN(jobId)) {
-            return NextResponse.json({ error: "Invalid Job ID" }, { status: 400 });
-        }
-
         const applications = await prisma.application.findMany({
-            where: { jobId },
+            where: { jobId: parseInt(jobId) },
         });
 
         return NextResponse.json(applications, { status: 200 });
